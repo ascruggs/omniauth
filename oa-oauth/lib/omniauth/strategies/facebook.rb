@@ -26,7 +26,7 @@ module OmniAuth
       
       def request_phase
         @options[:scope] ||= "email,offline_access"
-        super(options)
+        super
       end
       
       def user_info
