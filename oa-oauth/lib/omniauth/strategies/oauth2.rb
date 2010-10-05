@@ -18,8 +18,8 @@ module OmniAuth
       
       attr_accessor :client
       
-      def request_phase(options = {})
-        redirect client.web_server.authorize_url({:redirect_uri => callback_url}.merge(options))
+      def request_phase
+        redirect client.web_server.authorize_url({:redirect_uri => callback_url}.merge(@options))
       end
       
       def callback_phase
