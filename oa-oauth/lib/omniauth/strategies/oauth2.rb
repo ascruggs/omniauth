@@ -25,6 +25,7 @@ module OmniAuth
       def callback_phase
         verifier = request.params['code']
         @access_token = client.web_server.get_access_token(verifier, :redirect_uri => callback_url)
+        request['auth'] = auth_hash
         super
       rescue ::OAuth2::HTTPError => e
         fail!(:invalid_credentials)
